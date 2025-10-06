@@ -82,5 +82,31 @@ namespace Learning2Test
                 dateTimePickerEnd.Value = dateTimePickerStart.Value;
             }
         }
+
+        private void btnBestemmingToevoegen_Click(object sender, EventArgs e)
+        {
+            //TODO: Aanpassen zodat een nieuwe bestemming wordt toegevoegd met gegevens van de gebruiker
+            //Huidige implementatie voegt een willekeurige bestemming toe
+
+            // 1. Create a new random destination
+            var rnd = new Random();
+            string[] names = { "Nice", "Valencia", "Porto", "Edinburgh", "Naples", "Seville", "Krakow", "Tallinn", "Riga", "Vilnius" };
+            string name = names[rnd.Next(names.Length)];
+            int minPeople = rnd.Next(1, 5);
+            int maxPeople = rnd.Next(minPeople, minPeople + 5);
+            DateTime start = DateTime.Today.AddDays(rnd.Next(0, 60));
+            DateTime end = start.AddDays(rnd.Next(3, 15));
+
+
+            var newDest = new Destination(name, minPeople, maxPeople, start, end);
+            holidaySearch.AddDestination(newDest);
+
+            // 1. Show popup message
+            MessageBox.Show("Bestemming '" + name + "' toegevoegd aan de lijst", "Toegevoegd", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // 3. Refresh the listBoxDestinations
+            listBoxDestinations.Items.Clear();
+            listBoxDestinations.Items.AddRange(holidaySearch.AllDestinations.ToArray());
+        }
     }
 }
