@@ -1,5 +1,4 @@
 # Learning2Test - Find The Bugs
-
 Dit is een oefening om unit-testen te leren schrijven. Het is een zeer klein programma om vakantiebestemmingen te zoeken. Er kunnen een aantal zoekopties ingegeven worden:
 - Start- en eind-datum
 - Aantal personen (maximaal 15)
