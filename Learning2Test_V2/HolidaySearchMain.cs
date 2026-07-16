@@ -195,5 +195,13 @@ namespace Learning2Test_V2
                 }
             }
         }
+
+        private void buttonViewBookings_Click(object sender, EventArgs e)
+        {
+            using (var bookingsForm = new BookingsOverviewForm(bookingRepository))
+            {
+                bookingsForm.ShowDialog();
+            }
+        }
     }
 }

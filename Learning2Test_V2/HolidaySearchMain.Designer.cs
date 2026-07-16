@@ -33,6 +33,7 @@
             checkedListBoxCountries = new CheckedListBox();
             buttonReset = new Button();
             buttonSearch = new Button();
+            buttonViewBookings = new Button();
             labelAdults = new Label();
             numericUpDownAdults = new NumericUpDown();
             labelChildren = new Label();
@@ -62,6 +63,7 @@
             groupBoxFilters.Controls.Add(checkedListBoxCountries);
             groupBoxFilters.Controls.Add(buttonReset);
             groupBoxFilters.Controls.Add(buttonSearch);
+            groupBoxFilters.Controls.Add(buttonViewBookings);
             groupBoxFilters.Controls.Add(labelAdults);
             groupBoxFilters.Controls.Add(numericUpDownAdults);
             groupBoxFilters.Controls.Add(labelChildren);
@@ -120,6 +122,20 @@
             buttonSearch.Text = "Zoeken";
             buttonSearch.UseVisualStyleBackColor = false;
             buttonSearch.Click += buttonSearch_Click;
+            // 
+            // buttonViewBookings
+            // 
+            buttonViewBookings.BackColor = Color.Green;
+            buttonViewBookings.FlatStyle = FlatStyle.Flat;
+            buttonViewBookings.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            buttonViewBookings.ForeColor = Color.White;
+            buttonViewBookings.Location = new Point(20, 533);
+            buttonViewBookings.Name = "buttonViewBookings";
+            buttonViewBookings.Size = new Size(410, 35);
+            buttonViewBookings.TabIndex = 10;
+            buttonViewBookings.Text = "Bekijk alle boekingen";
+            buttonViewBookings.UseVisualStyleBackColor = false;
+            buttonViewBookings.Click += buttonViewBookings_Click;
             // 
             // labelAdults
             // 
@@ -289,6 +305,7 @@
         private Button buttonSearch;
         private Button buttonReset;
         private Button buttonBook;
+        private Button buttonViewBookings;
         private DateTimePicker dateTimePickerStart;
         private DateTimePicker dateTimePickerEnd;
         private GroupBox groupBoxFilters;
