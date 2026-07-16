@@ -25,18 +25,26 @@ namespace Learning2Test_Models
         /// Repository for accessing destination data.
         /// </summary>
         private readonly IDestinationRepository _repository;
-        
+
+        /// <summary>
+        /// Repository for managing bookings.
+        /// </summary>
+        private readonly IBookingRepository _bookingRepository;
+
         /// <summary>
         /// Creates a new HolidaySearch instance with dependency injection
         /// </summary>
         /// <param name="repository">Data repository for destinations</param>
+        /// <param name="bookingRepository">Repository for managing bookings</param>
         /// <param name="startDate">Search start date</param>
         /// <param name="endDate">Search end date</param>
         /// <param name="adults">Number of adults</param>
         /// <param name="children">Number of children</param>
-        public HolidaySearch(IDestinationRepository repository, DateTime startDate, DateTime endDate, int adults, int children)
+        public HolidaySearch(IDestinationRepository repository, IBookingRepository bookingRepository, 
+            DateTime startDate, DateTime endDate, int adults, int children)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _bookingRepository = bookingRepository ?? throw new ArgumentNullException(nameof(bookingRepository));
             StartDate = startDate;
             EndDate = endDate;
             NumberOfAdults = adults;
@@ -45,6 +53,7 @@ namespace Learning2Test_Models
 
         /// <summary>
         /// Searches for available and unavailable destinations based on criteria
+        /// Also filters by current capacity
         /// </summary>
         public (List<DestinationCity> available, List<DestinationCity> unavailable) Search(
             DateTime startDate, DateTime endDate, int adults, int children, List<string> selectedCountries)
@@ -55,7 +64,8 @@ namespace Learning2Test_Models
                 .Where(c =>
                     selectedCountries.Contains(c.Country) &&
                     adults >= c.MinAdults && adults <= c.MaxAdults &&
-                    children >= c.MinChildren && children <= c.MaxChildren)
+                    children >= c.MinChildren && children <= c.MaxChildren &&
+                    c.HasCapacity(adults, children)) // Check current capacity
                 .ToList();
 
             available = filtered

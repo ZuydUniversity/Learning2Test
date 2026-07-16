@@ -98,12 +98,14 @@ namespace Learning2Test_Models.Tests
     {
         private HolidaySearch _holidaySearch;
         private Learning2Test_Models.IDestinationRepository _repository;
+        private Learning2Test_Models.IBookingRepository _bookingRepository;
 
         [SetUp]
         public void SetUp()
         {
             _repository = new DestinationRepository();
-            _holidaySearch = new HolidaySearch(_repository, DateTime.Today, DateTime.Today.AddDays(7), 2, 0);
+            _bookingRepository = new BookingRepository(_repository);
+            _holidaySearch = new HolidaySearch(_repository, _bookingRepository, DateTime.Today, DateTime.Today.AddDays(7), 2, 0);
         }
 
         [Test]
@@ -236,7 +238,7 @@ namespace Learning2Test_Models.Tests
         public void Reset_RestoresDefaultValues()
         {
             // Arrange - modify properties
-            _holidaySearch = new HolidaySearch(_repository, new DateTime(2025, 6, 1), new DateTime(2025, 6, 15), 4, 2);
+            _holidaySearch = new HolidaySearch(_repository, _bookingRepository, new DateTime(2025, 6, 1), new DateTime(2025, 6, 15), 4, 2);
 
             // Act
             _holidaySearch.Reset();
@@ -321,7 +323,8 @@ namespace Learning2Test_Models.Tests
         public void TotalGuests_CalculatesCorrectly()
         {
             // Arrange
-            var search = new HolidaySearch(_repository, DateTime.Today, DateTime.Today.AddDays(7), 3, 2);
+            var bookingRepo = new BookingRepository(_repository);
+            var search = new HolidaySearch(_repository, bookingRepo, DateTime.Today, DateTime.Today.AddDays(7), 3, 2);
 
             // Act & Assert
             Assert.That(search.TotalGuests, Is.EqualTo(5));
@@ -333,7 +336,8 @@ namespace Learning2Test_Models.Tests
             // Arrange
             var startDate = new DateTime(2025, 7, 1);
             var endDate = new DateTime(2025, 7, 8);
-            var search = new HolidaySearch(_repository, startDate, endDate, 2, 0);
+            var bookingRepo = new BookingRepository(_repository);
+            var search = new HolidaySearch(_repository, bookingRepo, startDate, endDate, 2, 0);
 
             // Act & Assert
             Assert.That(search.TotalNights, Is.EqualTo(7));

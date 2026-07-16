@@ -53,6 +53,13 @@ namespace Learning2Test_DAL
             return _cities.ToList(); // Return a copy to prevent external modification
         }
 
+        public DestinationCity? GetByNameAndCountry(string name, string country)
+        {
+            return _cities.FirstOrDefault(c => 
+                c.Name.Equals(name, StringComparison.OrdinalIgnoreCase) &&
+                c.Country.Equals(country, StringComparison.OrdinalIgnoreCase));
+        }
+
         public DestinationCity? GetByName(string name)
         {
             return _cities.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));

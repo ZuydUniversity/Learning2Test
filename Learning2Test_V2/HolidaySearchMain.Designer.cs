@@ -43,13 +43,16 @@
             dateTimePickerEnd = new DateTimePicker();
             groupBoxResults = new GroupBox();
             labelAvailable = new Label();
-            listBoxAvailable = new ListBox();
+            dataGridViewAvailable = new DataGridView();
+            buttonBook = new Button();
             labelUnavailable = new Label();
-            listBoxUnavailable = new ListBox();
+            dataGridViewUnavailable = new DataGridView();
             groupBoxFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAdults).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownChildren).BeginInit();
             groupBoxResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAvailable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUnavailable).BeginInit();
             SuspendLayout();
             // 
             // groupBoxFilters
@@ -67,10 +70,11 @@
             groupBoxFilters.Controls.Add(dateTimePickerStart);
             groupBoxFilters.Controls.Add(labelEndDate);
             groupBoxFilters.Controls.Add(dateTimePickerEnd);
+            groupBoxFilters.Dock = DockStyle.Left;
             groupBoxFilters.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            groupBoxFilters.Location = new Point(30, 30);
+            groupBoxFilters.Location = new Point(0, 0);
             groupBoxFilters.Name = "groupBoxFilters";
-            groupBoxFilters.Size = new Size(452, 545);
+            groupBoxFilters.Size = new Size(459, 587);
             groupBoxFilters.TabIndex = 0;
             groupBoxFilters.TabStop = false;
             groupBoxFilters.Text = "Zoekcriteria";
@@ -186,15 +190,17 @@
             // 
             // groupBoxResults
             // 
+            groupBoxResults.AutoSize = true;
             groupBoxResults.BackColor = Color.White;
             groupBoxResults.Controls.Add(labelAvailable);
-            groupBoxResults.Controls.Add(listBoxAvailable);
+            groupBoxResults.Controls.Add(dataGridViewAvailable);
+            groupBoxResults.Controls.Add(buttonBook);
             groupBoxResults.Controls.Add(labelUnavailable);
-            groupBoxResults.Controls.Add(listBoxUnavailable);
+            groupBoxResults.Controls.Add(dataGridViewUnavailable);
             groupBoxResults.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            groupBoxResults.Location = new Point(502, 27);
+            groupBoxResults.Location = new Point(465, 0);
             groupBoxResults.Name = "groupBoxResults";
-            groupBoxResults.Size = new Size(998, 548);
+            groupBoxResults.Size = new Size(1076, 587);
             groupBoxResults.TabIndex = 1;
             groupBoxResults.TabStop = false;
             groupBoxResults.Text = "Resultaten";
@@ -207,30 +213,57 @@
             labelAvailable.TabIndex = 0;
             labelAvailable.Text = "Beschikbare steden";
             // 
-            // listBoxAvailable
+            // dataGridViewAvailable
             // 
-            listBoxAvailable.ItemHeight = 25;
-            listBoxAvailable.Location = new Point(30, 70);
-            listBoxAvailable.MultiColumn = true;
-            listBoxAvailable.Name = "listBoxAvailable";
-            listBoxAvailable.Size = new Size(946, 204);
-            listBoxAvailable.TabIndex = 1;
+            dataGridViewAvailable.AllowUserToAddRows = false;
+            dataGridViewAvailable.AllowUserToDeleteRows = false;
+            dataGridViewAvailable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewAvailable.BackgroundColor = SystemColors.ControlLight;
+            dataGridViewAvailable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewAvailable.Location = new Point(30, 70);
+            dataGridViewAvailable.Name = "dataGridViewAvailable";
+            dataGridViewAvailable.ReadOnly = true;
+            dataGridViewAvailable.RowHeadersWidth = 51;
+            dataGridViewAvailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewAvailable.Size = new Size(990, 204);
+            dataGridViewAvailable.TabIndex = 1;
+            // 
+            // buttonBook
+            // 
+            buttonBook.BackColor = Color.Orange;
+            buttonBook.FlatStyle = FlatStyle.Flat;
+            buttonBook.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            buttonBook.ForeColor = Color.White;
+            buttonBook.Location = new Point(820, 280);
+            buttonBook.Name = "buttonBook";
+            buttonBook.Size = new Size(200, 40);
+            buttonBook.TabIndex = 2;
+            buttonBook.Text = "Boek geselecteerde reis";
+            buttonBook.UseVisualStyleBackColor = false;
+            buttonBook.Click += buttonBook_Click;
             // 
             // labelUnavailable
             // 
-            labelUnavailable.Location = new Point(30, 363);
+            labelUnavailable.Location = new Point(30, 290);
             labelUnavailable.Name = "labelUnavailable";
             labelUnavailable.Size = new Size(200, 25);
             labelUnavailable.TabIndex = 2;
             labelUnavailable.Text = "Niet beschikbaar (datum)";
             // 
-            // listBoxUnavailable
+            // dataGridViewUnavailable
             // 
-            listBoxUnavailable.ItemHeight = 25;
-            listBoxUnavailable.Location = new Point(30, 391);
-            listBoxUnavailable.Name = "listBoxUnavailable";
-            listBoxUnavailable.Size = new Size(946, 129);
-            listBoxUnavailable.TabIndex = 3;
+            dataGridViewUnavailable.AllowUserToAddRows = false;
+            dataGridViewUnavailable.AllowUserToDeleteRows = false;
+            dataGridViewUnavailable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewUnavailable.BackgroundColor = SystemColors.ControlLight;
+            dataGridViewUnavailable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewUnavailable.Location = new Point(30, 320);
+            dataGridViewUnavailable.Name = "dataGridViewUnavailable";
+            dataGridViewUnavailable.ReadOnly = true;
+            dataGridViewUnavailable.RowHeadersWidth = 51;
+            dataGridViewUnavailable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewUnavailable.Size = new Size(990, 200);
+            dataGridViewUnavailable.TabIndex = 3;
             // 
             // HolidaySearchMain
             // 
@@ -245,13 +278,17 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownAdults).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownChildren).EndInit();
             groupBoxResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAvailable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUnavailable).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button buttonSearch;
         private Button buttonReset;
+        private Button buttonBook;
         private DateTimePicker dateTimePickerStart;
         private DateTimePicker dateTimePickerEnd;
         private GroupBox groupBoxFilters;
@@ -262,8 +299,8 @@
         private Label labelEndDate;
         private Label labelAvailable;
         private Label labelUnavailable;
-        private ListBox listBoxAvailable;
-        private ListBox listBoxUnavailable;
+        private DataGridView dataGridViewAvailable;
+        private DataGridView dataGridViewUnavailable;
         private Label label1;
         private CheckedListBox checkedListBoxCountries;
         private NumericUpDown numericUpDownChildren;
