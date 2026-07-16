@@ -1,22 +1,27 @@
 using Learning2Test_Models;
+using Learning2Test_DAL;
 
 namespace Learning2Test_V2
 {
     public partial class HolidaySearchMain : Form
     {
         private HolidaySearch holidaySearch;
+        private Learning2Test_Models.IDestinationRepository repository;
 
         public HolidaySearchMain()
         {
             InitializeComponent();
 
-            holidaySearch = new HolidaySearch(DateTime.Today, DateTime.Today.AddDays(1), 1, 0);
+            // Create repository (dependency injection)
+            repository = new DestinationRepository();
+
+            // Create HolidaySearch with repository
+            holidaySearch = new HolidaySearch(repository, DateTime.Today, DateTime.Today.AddDays(1), 1, 0);
 
             // Populate countries from available destinations
             var countries = holidaySearch.GetAvailableCountries();
             foreach (var country in countries)
             {
-
                 checkedListBoxCountries.Items.Add(country);
             }
 
@@ -35,17 +40,20 @@ namespace Learning2Test_V2
 
             var (available, unavailable) = holidaySearch.Search(startDate, endDate, adults, children, selectedCountries);
 
+            int nights = (endDate - startDate).Days;
+
             listBoxAvailable.Items.Clear();
             foreach (var city in available)
             {
-                var info = $"{city.Name} ({city.Country}) - Capaciteit: {city.MinAdults}-{city.MaxAdults} volw., {city.MinChildren}-{city.MaxChildren} kind. | Beschikbaar: {city.AvailableFrom:dd/MM/yyyy} tot {city.AvailableTo:dd/MM/yyyy}";
+                var totalPrice = city.CalculateTotalPrice(nights, adults, children);
+                var info = $"{city.Name} ({city.Country}) - €{city.PricePerNightPerPerson:F2}/p.p./nacht | Totaal: €{totalPrice:F2} ({nights} nachten) | Cap: {city.MinAdults}-{city.MaxAdults} volw., {city.MinChildren}-{city.MaxChildren} kind.";
                 listBoxAvailable.Items.Add(info);
             }
 
             listBoxUnavailable.Items.Clear();
             foreach (var city in unavailable)
             {
-                var info = $"{city.Name} ({city.Country}) - Beschikbaar vanaf {city.AvailableFrom:dd/MM/yyyy} tot {city.AvailableTo:dd/MM/yyyy}";
+                var info = $"{city.Name} ({city.Country}) - €{city.PricePerNightPerPerson:F2}/p.p./nacht | Beschikbaar: {city.AvailableFrom:dd/MM/yyyy} - {city.AvailableTo:dd/MM/yyyy}";
                 listBoxUnavailable.Items.Add(info);
             }
 

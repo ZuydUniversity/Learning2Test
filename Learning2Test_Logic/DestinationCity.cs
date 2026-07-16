@@ -10,8 +10,9 @@ namespace Learning2Test_Models
         public int MaxChildren { get; set; }
         public DateTime AvailableFrom { get; set; }
         public DateTime AvailableTo { get; set; }
+        public decimal PricePerNightPerPerson { get; set; }
 
-        public DestinationCity(string name, string country, int minAdults, int maxAdults, int minChildren, int maxChildren, DateTime availableFrom, DateTime availableTo)
+        public DestinationCity(string name, string country, int minAdults, int maxAdults, int minChildren, int maxChildren, DateTime availableFrom, DateTime availableTo, decimal pricePerNightPerPerson)
         {
             Name = name;
             Country = country;
@@ -21,6 +22,13 @@ namespace Learning2Test_Models
             MaxChildren = maxChildren;
             AvailableFrom = availableFrom;
             AvailableTo = availableTo;
+            PricePerNightPerPerson = pricePerNightPerPerson;
+        }
+
+        public decimal CalculateTotalPrice(int nights, int adults, int children)
+        {
+            int totalGuests = adults + children;
+            return PricePerNightPerPerson * nights * totalGuests;
         }
     }
 }
