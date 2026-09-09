@@ -15,7 +15,7 @@ namespace Learning2Test_Models.Tests
         {
             // Arrange
             var name = "Paris";
-            var country = "France";
+            var country = "Frankrijk";
             var minAdults = 1;
             var maxAdults = 4;
             var minChildren = 0;
@@ -43,7 +43,7 @@ namespace Learning2Test_Models.Tests
         public void CalculateTotalPrice_WithTwoAdultsThreeNights_ReturnsCorrectPrice()
         {
             // Arrange
-            var city = new DestinationCity("Paris", "France", 1, 4, 0, 3, 
+            var city = new DestinationCity("Parijs", "Frankrijk", 1, 4, 0, 3, 
                 new DateTime(2025, 6, 1), new DateTime(2025, 8, 31), 100.00m);
             var nights = 3;
             var adults = 2;
@@ -61,7 +61,7 @@ namespace Learning2Test_Models.Tests
         public void CalculateTotalPrice_WithFamilyOfFour_ReturnsCorrectPrice()
         {
             // Arrange
-            var city = new DestinationCity("Nice", "France", 2, 6, 0, 4, 
+            var city = new DestinationCity("Nice", "Frankrijk", 2, 6, 0, 4, 
                 new DateTime(2025, 7, 1), new DateTime(2025, 9, 15), 110.00m);
             var nights = 7;
             var adults = 2;
@@ -79,7 +79,7 @@ namespace Learning2Test_Models.Tests
         public void CalculateTotalPrice_WithZeroNights_ReturnsZero()
         {
             // Arrange
-            var city = new DestinationCity("Berlin", "Germany", 1, 5, 0, 4, 
+            var city = new DestinationCity("Berlijn", "Duitsland", 1, 5, 0, 4, 
                 new DateTime(2025, 5, 1), new DateTime(2025, 10, 1), 80.00m);
 
             // Act
@@ -123,14 +123,14 @@ namespace Learning2Test_Models.Tests
             // Arrange
             var startDate = new DateTime(2025, 7, 1);
             var endDate = new DateTime(2025, 7, 8);
-            var selectedCountries = new List<string> { "France" };
+            var selectedCountries = new List<string> { "Frankrijk" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 2, 0, selectedCountries);
 
             // Assert
-            Assert.That(available.All(c => c.Country == "France"), Is.True);
-            Assert.That(unavailable.All(c => c.Country == "France"), Is.True);
+            Assert.That(available.All(c => c.Country == "Frankrijk"), Is.True);
+            Assert.That(unavailable.All(c => c.Country == "Frankrijk"), Is.True);
         }
 
         [Test]
@@ -139,15 +139,15 @@ namespace Learning2Test_Models.Tests
             // Arrange
             var startDate = new DateTime(2025, 6, 15);
             var endDate = new DateTime(2025, 6, 20);
-            var selectedCountries = new List<string> { "France", "Germany" };
+            var selectedCountries = new List<string> { "Frankrijk", "Duitsland" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 2, 0, selectedCountries);
             var allResults = available.Concat(unavailable).ToList();
 
             // Assert
-            Assert.That(allResults.All(c => c.Country == "France" || c.Country == "Germany"), Is.True);
-            Assert.That(allResults.Any(c => c.Country == "Italy" || c.Country == "Spain"), Is.False);
+            Assert.That(allResults.All(c => c.Country == "Frankrijk" || c.Country == "Duitsland"), Is.True);
+            Assert.That(allResults.Any(c => c.Country == "Italië" || c.Country == "Spanje"), Is.False);
         }
 
         [Test]
@@ -157,14 +157,14 @@ namespace Learning2Test_Models.Tests
             var currentYear = DateTime.Now.Year;
             var startDate = new DateTime(currentYear, 7, 1);
             var endDate = new DateTime(currentYear, 7, 8);
-            var selectedCountries = new List<string> { "France" };
+            var selectedCountries = new List<string> { "Frankrijk" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 2, 0, selectedCountries);
 
             // Assert
             Assert.That(available, Is.Not.Empty);
-            Assert.That(available.Any(c => c.Name == "Paris"), Is.True);
+            Assert.That(available.Any(c => c.Name == "Parijs"), Is.True);
         }
 
         [Test]
@@ -174,7 +174,7 @@ namespace Learning2Test_Models.Tests
             var currentYear = DateTime.Now.Year;
             var startDate = new DateTime(currentYear, 1, 1);
             var endDate = new DateTime(currentYear, 1, 8);
-            var selectedCountries = new List<string> { "France" };
+            var selectedCountries = new List<string> { "Frankrijk" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 2, 0, selectedCountries);
@@ -187,19 +187,19 @@ namespace Learning2Test_Models.Tests
         [Test]
         public void Search_WithTooManyAdults_ExcludesCities()
         {
-            // Arrange - Munich max 45 adults, searching with 50
+            // Arrange - Munchen max 45 adults, searching with 50
             var currentYear = DateTime.Now.Year;
             var startDate = new DateTime(currentYear, 7, 1);
             var endDate = new DateTime(currentYear, 7, 8);
-            var selectedCountries = new List<string> { "Germany" };
+            var selectedCountries = new List<string> { "Duitsland" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 50, 0, selectedCountries);
             var allResults = available.Concat(unavailable).ToList();
 
-            // Assert - Munich (max 45) should not appear, but Berlin (max 150) should
-            Assert.That(allResults.Any(c => c.Name == "Munich"), Is.False);
-            Assert.That(allResults.Any(c => c.Name == "Berlin"), Is.True);
+            // Assert - Munchen (max 45) should not appear, but Berlijn (max 150) should
+            Assert.That(allResults.Any(c => c.Name == "Munchen"), Is.False);
+            Assert.That(allResults.Any(c => c.Name == "Berlijn"), Is.True);
         }
 
         [Test]
@@ -208,7 +208,7 @@ namespace Learning2Test_Models.Tests
             // Arrange - Nice requires min 2 adults, searching with 1
             var startDate = new DateTime(2025, 7, 15);
             var endDate = new DateTime(2025, 7, 20);
-            var selectedCountries = new List<string> { "France" };
+            var selectedCountries = new List<string> { "Frankrijk" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 1, 0, selectedCountries);
@@ -228,10 +228,10 @@ namespace Learning2Test_Models.Tests
             Assert.That(countries, Is.Not.Empty);
             Assert.That(countries, Is.Unique);
             Assert.That(countries, Is.Ordered);
-            Assert.That(countries.Contains("France"), Is.True);
-            Assert.That(countries.Contains("Germany"), Is.True);
-            Assert.That(countries.Contains("Italy"), Is.True);
-            Assert.That(countries.Contains("Spain"), Is.True);
+            Assert.That(countries.Contains("Frankrijk"), Is.True);
+            Assert.That(countries.Contains("Duitsland"), Is.True);
+            Assert.That(countries.Contains("Italië"), Is.True);
+            Assert.That(countries.Contains("Spanje"), Is.True);
         }
 
         [Test]
@@ -272,7 +272,7 @@ namespace Learning2Test_Models.Tests
             // Arrange
             var startDate = new DateTime(2025, 7, 1);
             var endDate = new DateTime(2025, 7, 8);
-            var selectedCountries = new List<string> { "Australia" };
+            var selectedCountries = new List<string> { "Australië" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 2, 0, selectedCountries);
@@ -289,7 +289,7 @@ namespace Learning2Test_Models.Tests
             var currentYear = DateTime.Now.Year;
             var startDate = new DateTime(currentYear, 7, 1);
             var endDate = new DateTime(currentYear, 7, 8);
-            var selectedCountries = new List<string> { "France", "Germany", "Italy", "Spain" };
+            var selectedCountries = new List<string> { "Frankrijk", "Duitsland", "Italië", "Spanje" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 250, 0, selectedCountries);
@@ -307,7 +307,7 @@ namespace Learning2Test_Models.Tests
             var currentYear = DateTime.Now.Year;
             var startDate = new DateTime(currentYear, 7, 15);
             var endDate = new DateTime(currentYear, 7, 20);
-            var selectedCountries = new List<string> { "France" };
+            var selectedCountries = new List<string> { "Frankrijk" };
 
             // Act
             var (available, unavailable) = _holidaySearch.Search(startDate, endDate, 2, 25, selectedCountries);

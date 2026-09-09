@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning2Test_V2", "Learnin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning2Test_Models", "Learning2Test_Logic\Learning2Test_Models.csproj", "{8D2844DC-F378-11D4-AE5D-A45BE3477AEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning2Test_Logic.Tests", "Learning2Test_Logic.Tests\Learning2Test_Logic.Tests.csproj", "{83C94D60-A877-4641-84BE-8C161A0E2204}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning2Test_Models.Tests", "Learning2Test_Logic.Tests\Learning2Test_Models.Tests.csproj", "{83C94D60-A877-4641-84BE-8C161A0E2204}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning2Test_DAL", "Learning2Test_DAL\Learning2Test_DAL.csproj", "{2071803E-CAFA-4D58-8B40-A5D6BF71ED51}"
 EndProject
