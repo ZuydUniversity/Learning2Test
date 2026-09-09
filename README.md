@@ -10,4 +10,5 @@ OF vervang het testproject (Learning2Test.Tests) die je aangevuld hebt met de ba
 Doel:
 * Zoveel mogelijk fouten gevonden hebben, zonder de testset aan te passen
 
+Zodra de testen geschreven zijn, kan het main-project vervangen worden door de versie die bewust voorzien is van fouten (zie branch: 'Find-the-bugs'). 
 Vind jouw testset alle fouten (zonder aanpassingen aan de testset!!)? Zo niet: Welke fouten heb je over het hoofd gezien?
