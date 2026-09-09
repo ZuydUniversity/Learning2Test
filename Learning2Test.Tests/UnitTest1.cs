@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Learning2Test;
+using Learning2Test_Logic;
 
-namespace Learning2Test.Tests
+namespace Learning2Test_Logic.Tests
 {
     [TestClass]
     ///<summary>
