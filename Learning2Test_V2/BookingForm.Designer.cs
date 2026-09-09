@@ -96,6 +96,7 @@ namespace Learning2Test_V2
             dateTimePickerBirthDate.Font = new Font("Segoe UI", 10F);
             dateTimePickerBirthDate.Format = DateTimePickerFormat.Short;
             dateTimePickerBirthDate.Location = new Point(180, 87);
+            dateTimePickerBirthDate.MinDate = new DateTime(1999, 1, 1, 0, 0, 0, 0);
             dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
             dateTimePickerBirthDate.Size = new Size(200, 30);
             dateTimePickerBirthDate.TabIndex = 3;

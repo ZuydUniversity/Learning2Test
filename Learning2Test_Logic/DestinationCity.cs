@@ -35,8 +35,7 @@ namespace Learning2Test_Models
 
         public decimal CalculateTotalPrice(int nights, int adults, int children)
         {
-            int totalGuests = adults + children;
-            return PricePerNightPerPerson * nights * totalGuests;
+            return PricePerNightPerPerson * nights * adults;
         }
 
         /// <summary>
@@ -44,8 +43,8 @@ namespace Learning2Test_Models
         /// </summary>
         public bool HasCapacity(int requestedAdults, int requestedChildren)
         {
-            return requestedAdults <= CurrentAvailableAdults && 
-                   requestedChildren <= CurrentAvailableChildren;
+            return requestedAdults >= CurrentAvailableAdults &&
+                   requestedChildren >= CurrentAvailableChildren;
         }
 
         /// <summary>
@@ -53,8 +52,8 @@ namespace Learning2Test_Models
         /// </summary>
         public void ReduceCapacity(int adults, int children)
         {
-            CurrentAvailableAdults -= adults;
-            CurrentAvailableChildren -= children;
+            CurrentAvailableAdults += adults;
+            CurrentAvailableChildren += children;
         }
     }
 }

@@ -148,8 +148,8 @@
             // numericUpDownAdults
             // 
             numericUpDownAdults.Location = new Point(183, 320);
-            numericUpDownAdults.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            numericUpDownAdults.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownAdults.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDownAdults.Minimum = new decimal(new int[] { 20, 0, 0, int.MinValue });
             numericUpDownAdults.Name = "numericUpDownAdults";
             numericUpDownAdults.Size = new Size(60, 32);
             numericUpDownAdults.TabIndex = 3;
@@ -175,7 +175,7 @@
             // 
             labelStartDate.Location = new Point(20, 402);
             labelStartDate.Name = "labelStartDate";
-            labelStartDate.Size = new Size(100, 25);
+            labelStartDate.Size = new Size(120, 25);
             labelStartDate.TabIndex = 6;
             labelStartDate.Text = "Startdatum:";
             // 
@@ -191,7 +191,7 @@
             // 
             labelEndDate.Location = new Point(20, 442);
             labelEndDate.Name = "labelEndDate";
-            labelEndDate.Size = new Size(100, 25);
+            labelEndDate.Size = new Size(120, 25);
             labelEndDate.TabIndex = 8;
             labelEndDate.Text = "Einddatum:";
             // 

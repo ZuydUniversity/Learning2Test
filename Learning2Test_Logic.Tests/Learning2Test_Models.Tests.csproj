@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Learning2Test_Logic\Learning2Test_Models.csproj" />
     <ProjectReference Include="..\Learning2Test_DAL\Learning2Test_DAL.csproj" />
+    <ProjectReference Include="..\Learning2Test_V2\Learning2Test_V2.csproj" />
   </ItemGroup>
 
   <ItemGroup>

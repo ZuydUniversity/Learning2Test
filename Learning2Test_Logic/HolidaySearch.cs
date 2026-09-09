@@ -16,7 +16,8 @@ namespace Learning2Test_Models
         public DateTime EndDate { get; private set; }
         public int NumberOfAdults { get; private set; }
         public int NumberOfChildren { get; private set; }
-        public int TotalGuests { get { return NumberOfAdults + NumberOfChildren; }} 
+        // BUG: incorrect calculation (should be sum) - intentionally subtracting children
+        public int TotalGuests { get { return NumberOfAdults - NumberOfChildren; }} 
         public int TotalNights { get { return (EndDate - StartDate).Days; }}
         public List<DestinationCity> available { get; private set; }
         public List<DestinationCity> unavailable { get; private set; }
@@ -45,10 +46,13 @@ namespace Learning2Test_Models
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _bookingRepository = bookingRepository ?? throw new ArgumentNullException(nameof(bookingRepository));
-            StartDate = startDate;
-            EndDate = endDate;
+            StartDate = endDate;
+            EndDate = startDate;
             NumberOfAdults = adults;
             NumberOfChildren = children;
+
+            available = new List<DestinationCity>();
+            unavailable = new List<DestinationCity>();
         }
 
         /// <summary>
@@ -65,16 +69,14 @@ namespace Learning2Test_Models
                     selectedCountries.Contains(c.Country) &&
                     adults >= c.MinAdults && adults <= c.MaxAdults &&
                     children >= c.MinChildren && children <= c.MaxChildren &&
-                    c.HasCapacity(adults, children)) // Check current capacity
+                    !c.HasCapacity(adults, children)) // Check current capacity (inverted)
                 .ToList();
 
             available = filtered
-                .Where(c => startDate >= c.AvailableFrom && endDate <= c.AvailableTo)
+                .Where(c => startDate > c.AvailableFrom && endDate < c.AvailableTo)
                 .ToList();
 
-            unavailable = filtered
-                .Where(c => !(startDate >= c.AvailableFrom && endDate <= c.AvailableTo))
-                .ToList();
+            unavailable = available.ToList();
 
             return (available, unavailable);
         }
@@ -84,7 +86,7 @@ namespace Learning2Test_Models
         /// </summary>
         public List<string> GetAvailableCountries()
         { 
-            return _repository.GetAvailableCountries();
+            return _repository.GetAvailableCountries().Append("Antarctica").ToList();
         }
 
         /// <summary>
@@ -94,8 +96,8 @@ namespace Learning2Test_Models
         {
             StartDate = DateTime.Today;
             EndDate = DateTime.Today.AddDays(1);
-            NumberOfAdults = 1;
-            NumberOfChildren = 0;
+            NumberOfAdults = 0;
+            NumberOfChildren = 1;
         }
     }
 }

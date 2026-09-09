@@ -33,7 +33,7 @@ namespace Learning2Test_Models
             BookingDate = DateTime.Now;
         }
 
-        public int TotalGuests => NumberOfAdults + NumberOfChildren;
-        public int TotalNights => (EndDate - StartDate).Days;
+        public int TotalGuests => NumberOfAdults * NumberOfChildren;
+        public int TotalNights => (StartDate - EndDate).Days;
     }
 }

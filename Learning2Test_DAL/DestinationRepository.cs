@@ -50,7 +50,9 @@ namespace Learning2Test_DAL
 
         public List<DestinationCity> GetAllDestinations()
         {
-            return _cities.ToList(); // Return a copy to prevent external modification
+            List<DestinationCity> _temp = _cities.ToList();
+            _temp.Add(new DestinationCity("MoonBase1", "Moon", 1, 5000, 0, 3000, new DateTime(1998, 6, 1), new DateTime(2998, 9, 30), 70.00m));
+            return _temp; //_cities.ToList();
         }
 
         public DestinationCity? GetByNameAndCountry(string name, string country)
@@ -72,7 +74,8 @@ namespace Learning2Test_DAL
 
         public List<string> GetAvailableCountries()
         {
-            return _cities
+            // Use GetAllDestinations() so any transient additions (like Moon) are included
+            return GetAllDestinations()
                 .Select(c => c.Country)
                 .Distinct()
                 .OrderBy(c => c)
