@@ -44,7 +44,6 @@
             this.lblStartdate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnBestemmingToevoegen = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +51,9 @@
             // 
             this.labelResults.AutoSize = true;
             this.labelResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResults.Location = new System.Drawing.Point(639, 60);
-            this.labelResults.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelResults.Location = new System.Drawing.Point(479, 49);
             this.labelResults.Name = "labelResults";
-            this.labelResults.Size = new System.Drawing.Size(22, 25);
+            this.labelResults.Size = new System.Drawing.Size(17, 20);
             this.labelResults.TabIndex = 14;
             this.labelResults.Text = "..";
             // 
@@ -63,7 +61,6 @@
             // 
             this.panel1.AllowDrop = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.btnBestemmingToevoegen);
             this.panel1.Controls.Add(this.buttonMinus);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBoxPeople);
@@ -79,18 +76,16 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(631, 622);
+            this.panel1.Size = new System.Drawing.Size(473, 505);
             this.panel1.TabIndex = 15;
             // 
             // buttonMinus
             // 
             this.buttonMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMinus.Location = new System.Drawing.Point(227, 155);
-            this.buttonMinus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMinus.Location = new System.Drawing.Point(170, 126);
             this.buttonMinus.Name = "buttonMinus";
-            this.buttonMinus.Size = new System.Drawing.Size(57, 37);
+            this.buttonMinus.Size = new System.Drawing.Size(43, 30);
             this.buttonMinus.TabIndex = 25;
             this.buttonMinus.Text = "-";
             this.buttonMinus.UseVisualStyleBackColor = true;
@@ -100,10 +95,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 218);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(33, 177);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 25);
+            this.label2.Size = new System.Drawing.Size(120, 20);
             this.label2.TabIndex = 24;
             this.label2.Text = "Bestemmingen:";
             // 
@@ -111,19 +105,17 @@
             // 
             this.textBoxPeople.Enabled = false;
             this.textBoxPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPeople.Location = new System.Drawing.Point(292, 158);
-            this.textBoxPeople.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPeople.Location = new System.Drawing.Point(219, 128);
             this.textBoxPeople.Name = "textBoxPeople";
-            this.textBoxPeople.Size = new System.Drawing.Size(59, 30);
+            this.textBoxPeople.Size = new System.Drawing.Size(45, 26);
             this.textBoxPeople.TabIndex = 23;
             // 
             // buttonPlus
             // 
             this.buttonPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlus.Location = new System.Drawing.Point(360, 155);
-            this.buttonPlus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonPlus.Location = new System.Drawing.Point(270, 126);
             this.buttonPlus.Name = "buttonPlus";
-            this.buttonPlus.Size = new System.Drawing.Size(57, 37);
+            this.buttonPlus.Size = new System.Drawing.Size(43, 30);
             this.buttonPlus.TabIndex = 19;
             this.buttonPlus.Text = "+";
             this.buttonPlus.UseVisualStyleBackColor = true;
@@ -134,10 +126,9 @@
             this.buttonReset.BackColor = System.Drawing.Color.Silver;
             this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReset.Location = new System.Drawing.Point(355, 556);
-            this.buttonReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonReset.Location = new System.Drawing.Point(170, 450);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(125, 53);
+            this.buttonReset.Size = new System.Drawing.Size(94, 43);
             this.buttonReset.TabIndex = 22;
             this.buttonReset.Text = "Opnieuw";
             this.buttonReset.UseVisualStyleBackColor = false;
@@ -149,10 +140,9 @@
             this.buttonSearch.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSearch.Location = new System.Drawing.Point(488, 554);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSearch.Location = new System.Drawing.Point(366, 450);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(123, 53);
+            this.buttonSearch.Size = new System.Drawing.Size(92, 43);
             this.buttonSearch.TabIndex = 21;
             this.buttonSearch.Text = "Zoeken";
             this.buttonSearch.UseVisualStyleBackColor = false;
@@ -162,10 +152,9 @@
             // 
             this.lblPersons.AutoSize = true;
             this.lblPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersons.Location = new System.Drawing.Point(44, 158);
-            this.lblPersons.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPersons.Location = new System.Drawing.Point(33, 128);
             this.lblPersons.Name = "lblPersons";
-            this.lblPersons.Size = new System.Drawing.Size(163, 25);
+            this.lblPersons.Size = new System.Drawing.Size(131, 20);
             this.lblPersons.TabIndex = 18;
             this.lblPersons.Text = "Aantal Personen:";
             // 
@@ -173,41 +162,37 @@
             // 
             this.listBoxDestinations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDestinations.FormattingEnabled = true;
-            this.listBoxDestinations.ItemHeight = 25;
-            this.listBoxDestinations.Location = new System.Drawing.Point(227, 218);
-            this.listBoxDestinations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxDestinations.ItemHeight = 20;
+            this.listBoxDestinations.Location = new System.Drawing.Point(170, 177);
             this.listBoxDestinations.Name = "listBoxDestinations";
             this.listBoxDestinations.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBoxDestinations.Size = new System.Drawing.Size(383, 304);
+            this.listBoxDestinations.Size = new System.Drawing.Size(288, 264);
             this.listBoxDestinations.TabIndex = 17;
             // 
             // dateTimePickerStart
             // 
             this.dateTimePickerStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerStart.Location = new System.Drawing.Point(227, 60);
-            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(170, 49);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(369, 30);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(278, 26);
             this.dateTimePickerStart.TabIndex = 15;
             this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePickerStart_ValueChanged);
             // 
             // dateTimePickerEnd
             // 
             this.dateTimePickerEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(227, 100);
-            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(170, 81);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(369, 30);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(278, 26);
             this.dateTimePickerEnd.TabIndex = 16;
             // 
             // lblEndDate
             // 
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndDate.Location = new System.Drawing.Point(44, 106);
-            this.lblEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEndDate.Location = new System.Drawing.Point(33, 86);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(116, 25);
+            this.lblEndDate.Size = new System.Drawing.Size(94, 20);
             this.lblEndDate.TabIndex = 14;
             this.lblEndDate.Text = "Eind datum:";
             // 
@@ -215,10 +200,9 @@
             // 
             this.lblStartdate.AutoSize = true;
             this.lblStartdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartdate.Location = new System.Drawing.Point(44, 68);
-            this.lblStartdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStartdate.Location = new System.Drawing.Point(33, 55);
             this.lblStartdate.Name = "lblStartdate";
-            this.lblStartdate.Size = new System.Drawing.Size(118, 25);
+            this.lblStartdate.Size = new System.Drawing.Size(97, 20);
             this.lblStartdate.TabIndex = 13;
             this.lblStartdate.Text = "Start datum:";
             // 
@@ -226,10 +210,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 29);
+            this.label1.Size = new System.Drawing.Size(241, 23);
             this.label1.TabIndex = 12;
             this.label1.Text = "Zoekopties voor een vakantie";
             // 
@@ -237,36 +220,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(639, 11);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(479, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 29);
+            this.label3.Size = new System.Drawing.Size(97, 23);
             this.label3.TabIndex = 16;
             this.label3.Text = "Resultaten";
             // 
-            // btnBestemmingToevoegen
-            // 
-            this.btnBestemmingToevoegen.BackColor = System.Drawing.Color.Silver;
-            this.btnBestemmingToevoegen.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnBestemmingToevoegen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBestemmingToevoegen.Location = new System.Drawing.Point(21, 556);
-            this.btnBestemmingToevoegen.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBestemmingToevoegen.Name = "btnBestemmingToevoegen";
-            this.btnBestemmingToevoegen.Size = new System.Drawing.Size(171, 53);
-            this.btnBestemmingToevoegen.TabIndex = 26;
-            this.btnBestemmingToevoegen.Text = "Bestemming Toevoegen";
-            this.btnBestemmingToevoegen.UseVisualStyleBackColor = false;
-            this.btnBestemmingToevoegen.Click += new System.EventHandler(this.btnBestemmingToevoegen_Click);
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 622);
+            this.ClientSize = new System.Drawing.Size(801, 505);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelResults);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -293,7 +260,6 @@
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnBestemmingToevoegen;
     }
 }
 
