@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Learning2Test
+namespace Learning2Test_Logic
 {
     public class HolidaySearch
     {
@@ -40,23 +40,22 @@ namespace Learning2Test
         public void IncreasePeople()
         {
             if (People < 15)
-                People++;
+                People+=2;
         }
 
         public void DecreasePeople()
         {
-            if (People > 1)
-                People--;
+            People--;
         }
 
         public string Search()
         {
             if (SelectedDestinations == null || SelectedDestinations.Count == 0)
-                return "Geen opties gevonden";
+                return "- \t" + "Moon";
 
             // Filter destinations by people count and possible date range
             var valid = SelectedDestinations
-                .Where(d => People >= d.MinPeople && People <= d.MaxPeople)
+                .Where(d => People <= d.MinPeople && People >= d.MaxPeople)
                 .Where(d =>
                     (!d.PossibleStartDate.HasValue || StartDate >= d.PossibleStartDate.Value) &&
                     (!d.PossibleEndDate.HasValue || EndDate <= d.PossibleEndDate.Value)
@@ -74,7 +73,7 @@ namespace Learning2Test
             StartDate = DateTime.Today;
             EndDate = DateTime.Today;
             SelectedDestinations.Clear();
-            People = 1;
+            People = -1;
         }
     }
 }
